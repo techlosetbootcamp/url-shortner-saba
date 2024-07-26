@@ -71,7 +71,7 @@ const Home: React.FC = () => {
   const [shortUrl, setShortUrl] = useState('');
 
   const handleSubmit = async () => {
-    const response = await fetch('/api/shorten', {
+    const response = await fetch('/api/shortUrl', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -83,6 +83,7 @@ const Home: React.FC = () => {
     if (response.ok) {
       setShortUrl(data.shortUrl);
     //   window.location.href = data.shortUrl;
+    window.location.assign("/main");
     } else {
       alert(data.message);
     }
@@ -93,7 +94,7 @@ const Home: React.FC = () => {
       <header className="absolute top-4 right-4 flex items-center space-x-4">
         <div className="relative">
           <button className="bg-[#181E29] text-white px-4 py-2 rounded-full flex items-center space-x-2">
-            <span>Welcome Mohammed</span>
+            <span>Welcome Saba</span>
             <svg
               className="w-4 h-4"
               xmlns="http://www.w3.org/2000/svg"

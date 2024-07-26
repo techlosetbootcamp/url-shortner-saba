@@ -4,15 +4,15 @@ import axios from 'axios';
 import toast from 'react-hot-toast';
 import Link from 'next/link';
 import { useSession } from 'next-auth/react';
+
 const UpdateProfileForm: React.FC = () => {
 
-  const { data: session, status } = useSession();
   const [currentEmail, setCurrentEmail] = useState('');
   const [newName, setNewName] = useState('');
   const [newEmail, setNewEmail] = useState('');
   const [updatedName, setUpdatedName] = useState<string | null>(null);
   const [updatedEmail, setUpdatedEmail] = useState<string | null>(null);
-
+  const { data: session, status } = useSession();
   const handleUpdateProfile = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
@@ -21,10 +21,10 @@ const UpdateProfileForm: React.FC = () => {
       console.log('Profile updated successfully:', response.data);
       toast.success('Profile updated successfully');
 
-      // Update local state with the new values
+      // // Update local state with the new values
       setUpdatedName(response.data.user.name);
       setUpdatedEmail(response.data.user.email);
-
+      window.location.assign("/login");
       // Optionally reset the form fields
       setCurrentEmail('');
       setNewName('');
@@ -34,6 +34,11 @@ const UpdateProfileForm: React.FC = () => {
       toast.error('Error updating profile');
     }
   };
+
+
+
+
+
 
   return (
     <div className="flex flex-col items-center justify-center min-h-screen bg-[#0B101B]">
@@ -53,8 +58,8 @@ const UpdateProfileForm: React.FC = () => {
           height={96}
         /> */}
          
-        <h3 className="text-white text-xl font-semibold mt-4">{updatedName || session?.user?.name}</h3>
-        <p className="text-gray-400">{updatedEmail || session?.user?.email}</p>
+        <h3 className="text-white text-xl font-semibold mt-4">{updatedName || session?.user.name }</h3>
+        <p className="text-gray-400">{updatedEmail || session?.user.email}</p>
 
         {/* Profile Update Form */}
         <form onSubmit={handleUpdateProfile} className="mt-6 space-y-4">
@@ -105,3 +110,7 @@ const UpdateProfileForm: React.FC = () => {
 };
 
 export default UpdateProfileForm;
+
+
+
+

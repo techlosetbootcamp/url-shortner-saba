@@ -10,6 +10,8 @@ import QRCode from 'react-qr-code';
 import EditUrlModal from '@/components/updateUrl/UpdateUrl';
 import { format } from 'date-fns';
 import ProfileButton from "@/components/profileButton/ProfileButton"
+import Link from 'next/link';
+import toast from "react-hot-toast";
 type UrlData = {
   id: string;
   originalUrl: string;
@@ -46,6 +48,12 @@ export default function HomePage() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!url) return;
+
+
+    if (urls.some((existingUrl) => existingUrl.originalUrl === url)) {
+      toast.error('This URL has already been shortened.');
+      return;
+    }
 
     setLoading(true);
     setError('');
@@ -117,6 +125,7 @@ export default function HomePage() {
             onChange={(e) => setUrl(e.target.value)}
             className="w-full lg:w-[1100px] h-[76px] pl-4 pr-[178px] rounded-[48px] border-4 border-[#353C4A] bg-[#181E29] focus:outline-none focus:border-purple-400 text-white"
           />
+         
           <button
             onClick={handleSubmit}
             className="absolute right-0 top-0 bottom-0 text-[16px] rounded-[48px] mt-2 shadow-[10px_9px_22px_0px_#144EE361] mr-2 bg-[#144EE3] w-[178px] h-[60px] px-[25.05px] py-[21px]"
@@ -139,25 +148,16 @@ export default function HomePage() {
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
       </header>
 
       <main className="container mx-auto p-6">
         <div className="flex justify-center items-center space-x-4 bg-gray-600 p-4 rounded"></div>
-
+        <div className="flex text-center text-[#C9CED6] ">
+          <Link href="/customSlug">
+            <h1 className="text-[#932970]  mr-[5px]">Generate Custom Slug</h1>
+          </Link>
+       
+        </div>
         {error && <div className="mt-4 text-red-500">Error: {error}</div>}
 
         <div className="text-center text-gray-400 mt-8">
