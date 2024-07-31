@@ -10,6 +10,7 @@ import Inputs from "@/components/inputForm/InputForm";
 // import { useSignOut } from "../app/hooks/useSignOut";
 import { useAuth } from "@/hooks/useAuth";
 import useSignOut from '@/hooks/useSignOut';
+import Link from "next/link";
 
 const LoginForm = () => {
   const { email, password, loading, handleEmailChange, handlePasswordChange, login } = useAuth();
@@ -20,7 +21,7 @@ const LoginForm = () => {
 
   return (
     <form className="w-full max-w-[659px]">
-      <div className="mb-4">
+      <div className="mb-[32px] xs:px-[30px]">
         <Inputs
           placeholder="Email"
           value={email}
@@ -28,7 +29,7 @@ const LoginForm = () => {
           disabled={loading}
         />
       </div>
-      <div className="mb-6">
+      <div className="mb-[32px]  xs:px-[30px]">
         <Inputs
           placeholder="Password"
           value={password}
@@ -37,11 +38,14 @@ const LoginForm = () => {
           type="password"
         />
       </div>
-
+      <p className="text-gray-400 mb-8 text-[16px] font-light leading-[23.5px] text-right">
+        <Link href="/forgetPassword">  Forgot Password?</Link>
+        
+          </p>
       <div className="flex justify-center text-center">
         <div
           onClick={login}
-          className="w-[268px] h-[60px] pt-4 rounded-[48px] bg-blue-600 text-white hover:bg-blue-700 transition duration-200"
+          className="bg-[#144EE3]  h-[60px] w-[268px] text-[#FFFFFF] font-semibold text-[16px] py-[21px] px-[25.05px] border border-solid border-[#144EE3] shadow-[10px_9px_22px_0px_#144EE361] rounded-[48px]  "
         >
           {loading ? "Logging in..." : "Login"}
         </div>

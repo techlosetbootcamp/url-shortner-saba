@@ -11,6 +11,11 @@ const nextConfig = {
       EMAIL_USERNAME: process.env.EMAIL_USERNAME,
       EMAIL_PASSWORD: process.env.EMAIL_PASSWORD,
     },
+
+
+    images: {
+      domains: ['www.google.com'],
+    },
   };
   
   export default  nextConfig;

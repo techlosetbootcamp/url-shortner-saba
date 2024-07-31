@@ -16,9 +16,9 @@ export default withAuth(
   {
     secret: process.env.NEXTAUTH_SECRET,
     pages: {
-      signIn: '/login', // Customize the sign-in page URL if needed
+      signIn: '/login', // Customize the sign-in page URL if needed "/main" ,
     },
   }
 );
 
-export const config = { matcher: ["/main" , "/profile" , "/customSlug"] };
+export const config = { matcher: [ "/profile","/main" , "/customSlug" ] };

@@ -126,7 +126,7 @@ const RegisterForm = () => {
 
   return (
     <form className="w-full max-w-[659px]">
-      <div className="mb-4">
+      <div className="mb-[32px]">
         <Inputs
           placeholder="Name"
           value={name}
@@ -134,7 +134,7 @@ const RegisterForm = () => {
           disabled={loading}
         />
       </div>
-      <div className="mb-4">
+      <div className="mb-[32px]">
         <Inputs
           placeholder="Email"
           value={email}
@@ -142,7 +142,7 @@ const RegisterForm = () => {
           disabled={loading}
         />
       </div>
-      <div className="mb-6">
+      <div className="mb-[32px]">
         <Inputs
           placeholder="Password"
           value={password}
@@ -151,7 +151,7 @@ const RegisterForm = () => {
           type="password"
         />
       </div>
-      <div className="mb-6">
+      <div className="mb-[32px]">
         <Inputs
           placeholder="Confirm Password"
           value={confirmPassword}
@@ -164,7 +164,7 @@ const RegisterForm = () => {
       <div className="flex justify-center text-center">
         <div
           onClick={() => register()}
-          className="w-[268px] h-[60px] pt-4 rounded-[48px] bg-blue-600 text-white hover:bg-blue-700 transition duration-200"
+          className="bg-[#144EE3]  h-[60px] w-[268px] text-[#FFFFFF] font-semibold text-[16px] py-[21px] px-[25.05px] border border-solid border-[#144EE3] shadow-[10px_9px_22px_0px_#144EE361] rounded-[48px] "
         >
           {loading ? "Registering..." : "Register"}
         </div>

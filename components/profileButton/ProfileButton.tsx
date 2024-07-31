@@ -1,7 +1,7 @@
 import React from 'react';
 import Image from 'next/image';
 import chevron from "@/app/assets/images/chevron-down.svg"
-
+import saram from "@/app/assets/images/alaram.svg"
 import { useSession } from 'next-auth/react';
 const ProfileButton: React.FC = () => {
 
@@ -27,7 +27,7 @@ const ProfileButton: React.FC = () => {
             
             </span>
         
-          <Image src={chevron} alt="down" />
+          <Image  src={chevron} alt="down" />
         </button>
         <div
           className="hidden absolute right-0 mt-2 bg-white border rounded-md shadow-lg w-48"
@@ -36,8 +36,8 @@ const ProfileButton: React.FC = () => {
           <a href="/logout" className="block px-4 py-2 text-gray-800 hover:bg-gray-100">Logout</a>
         </div>
       </div>
-      <div className="relative">
-        <button className="bg-blue-600 rounded-full p-2">2</button>
+      <div className="relative pt-[16px]">
+      <Image src={saram} alt="alaram"  priority  />
       </div>
     </div>
   );

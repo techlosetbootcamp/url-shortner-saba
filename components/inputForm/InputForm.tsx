@@ -11,7 +11,7 @@ interface InputsProps extends InputHTMLAttributes<HTMLInputElement> {
 const Inputs: React.FC<InputsProps> = ({ placeholder, value, onChange, disabled = false, type = "text" }) => {
   return (
     <input
-    className="w-full h-[76px] pl-4 pr-[178px] rounded-[48px] border-4 border-[#353C4A] bg-[#181E29] focus:outline-none focus:border-purple-400 text-white"
+    className="w-full h-[76px] pl-[25px] py-[24px]   rounded-[48px] border-4 border-[#353C4A] bg-[#181E29] focus:outline-none focus:border-purple-400 text-white"
       placeholder={placeholder}
       value={value}
       onChange={onChange}
