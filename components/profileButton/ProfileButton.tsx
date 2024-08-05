@@ -3,6 +3,7 @@ import Image from 'next/image';
 import chevron from "@/app/assets/images/chevron-down.svg"
 import saram from "@/app/assets/images/alaram.svg"
 import { useSession } from 'next-auth/react';
+import Link from 'next/link';
 const ProfileButton: React.FC = () => {
 
   const { data: session, status } = useSession();
@@ -30,10 +31,10 @@ const ProfileButton: React.FC = () => {
           <Image  src={chevron} alt="down" />
         </button>
         <div
-          className="hidden absolute right-0 mt-2 bg-white border rounded-md shadow-lg w-48"
+          className="hidden absolute right-0 h-[71px] bg-[#2f394b] border rounded-md shadow-lg w-48"
         >
-          <a href="/profile" className="block px-4 py-2 text-gray-800 hover:bg-gray-100">Profile</a>
-          <a href="/logout" className="block px-4 py-2 text-gray-800 hover:bg-gray-100">Logout</a>
+          < Link  href="/profile" className="block px-4 py-2 text-white border border-solid border-white hover:bg-gray-100">Profile</ Link >
+          < Link  href="/logout" className="block px-4 pb-2 text-white hover:bg-gray-100">Logout</ Link >
         </div>
       </div>
       <div className="relative pt-[16px]">

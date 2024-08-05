@@ -4,6 +4,8 @@ import axios from 'axios';
 import toast from 'react-hot-toast';
 import Link from 'next/link';
 import { useSession } from 'next-auth/react';
+import firstImage from "@/app/assets/images/Cubes.svg";
+import secondImage from "@/app/assets/images/Swirl.svg";
 
 const UpdateProfileForm: React.FC = () => {
 
@@ -41,10 +43,13 @@ const UpdateProfileForm: React.FC = () => {
 
 
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen bg-[#0B101B]">
-      <div className="absolute top-[2.5rem] text-center">
+    <div  style={{
+      backgroundImage: `url(${firstImage.src}), url(${secondImage.src})`,
+      // animation: 'bg-animation 10s infinite alternate',
+    }}  className="flex flex-col items-center justify-center min-h-screen bg-[#0B101B]">
+      <div className=" text-center">
         <h2 className="bg-gradient-to-r from-[#EB568E] to-[#144EE3] text-gradient bg-clip-text text-transparent font-extrabold text-[36.91px] leading-[45.44px]">
-          Linkly
+          Update Profile
         </h2>
       </div>
 

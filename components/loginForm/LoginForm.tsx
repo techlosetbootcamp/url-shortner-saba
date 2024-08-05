@@ -38,7 +38,7 @@ const LoginForm = () => {
           type="password"
         />
       </div>
-      <p className="text-gray-400 mb-8 text-[16px] font-light leading-[23.5px] text-right">
+      <p className="text-gray-400 mb-8 text-[16px] font-light leading-[23.5px] text-right xs:pr-[40px]">
         <Link href="/forgetPassword">  Forgot Password?</Link>
         
           </p>

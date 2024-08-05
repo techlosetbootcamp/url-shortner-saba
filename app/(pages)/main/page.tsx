@@ -2,15 +2,9 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import Image from 'next/image';
-import active from "@/app/assets/images/Active.svg";
-import inactive from "@/app/assets/images/Inactive.svg";
-import edit from "@/app/assets/images/edit.svg";
-import del from "@/app/assets/images/delete.svg";
-import QRCode from 'react-qr-code';
+
 import EditUrlModal from '@/components/updateUrl/UpdateUrl';
-import { format } from 'date-fns';
-import ProfileButton from "@/components/profileButton/ProfileButton"
-import Clip from "@/app/assets/images/Clip.svg"
+
 import Link from 'next/link';
 import toast from "react-hot-toast";
 import clock from "@/app/assets/images/clock.svg"
@@ -18,12 +12,15 @@ import chart from "@/app/assets/images/chart-simple.svg"
 import cog from "@/app/assets/images/cog.svg"
 import filter from "@/app/assets/images/filter.svg"
 import add from "@/app/assets/images/plus-circle.svg"
-import dat from "@/app/assets/images/Date.svg"
+
 import firstImage from "@/app/assets/images/Cubes.svg";
 import secondImage from "@/app/assets/images/Swirl.svg";
-import copy from "@/app/assets/images/copy.svg"
 
-import OriginalUrlWithFavicon from '@/components/urlFevicon/UrlFevicon';
+import CardView from "@/components/cardView/CardView"
+import URLTable from "@/components/customTable/CustomTable"
+import Header from '@/components/hero/Hero';
+
+
 type UrlData = {
   id: string;
   originalUrl: string;
@@ -42,7 +39,14 @@ export default function HomePage() {
   const [editingShortUrl, setEditingShortUrl] = useState<string | null>(null);
   const [newShortUrl, setNewShortUrl] = useState('');
   const [isEditModalOpen, setIsEditModalOpen] = useState(false);
- 
+  const [expandedRows, setExpandedRows] = useState<{ [key: string]: boolean }>({});
+
+  const handleExpand = (id:any) => {
+    setExpandedRows((prev) => ({
+      ...prev,
+      [id]: !prev[id],
+    }));
+  };
 
   useEffect(() => {
     fetchUrls();
@@ -137,33 +141,48 @@ export default function HomePage() {
     <div style={{
       backgroundImage: `url(${firstImage.src}), url(${secondImage.src})`,
       // animation: 'bg-animation 10s infinite alternate',
-    }} className="min-h-screen bg-[#0B101B]  text-white">
+    }} className="min-h-screen bg-[#0B101B]  text-white overflow-hidden">
       
-<header className="flex w-full justify-between items-center pb-[81px] pt-[44px] pl-[52px] pr-[55px]  h-[185px]">
-  <h1 className="bg-gradient-to-r from-pink-500 to-blue-600 text-gradient bg-clip-text text-transparent font-extrabold text-4xl">
+
+
+
+
+
+
+
+
+
+      {/* <header className="flex items-center justify-between w-full h-[185px] pb-[81px] pt-[44px] pl-[52px] pr-[55px]">
+  <h1 className="xs:hidden pb-[2px] mr-[20px] bg-gradient-to-r from-pink-500 to-blue-600 text-gradient bg-clip-text text-transparent font-extrabold text-4xl">
     Linkly
   </h1>
 
-  <div className="relative flex flex-col items-center w-2/3 pt-[65px]">
-    <div className="relative w-full">
+  <div className="flex-1 flex flex-col items-center justify-center mt-[60px]">
+    <div className="relative w-full max-w-[1100px]">
       <input
         type="text"
         placeholder="Enter the link here"
         value={url}
         onChange={(e) => setUrl(e.target.value)}
-        className="w-full lg:w-[1100px] h-[76px] pl-4 pr-[178px] rounded-[48px] border-4 border-[#353C4A] bg-[#181E29] focus:outline-none focus:border-purple-400 text-white"
+        className="w-full h-[76px] pl-4 pr-[190px] rounded-[48px] border-4 border-[#353C4A] bg-[#181E29] focus:outline-none focus:border-purple-400 text-white"
       />
 
       <button
         onClick={handleSubmit}
-        className="absolute right-[-20px] top-0 
-         text-[16px] rounded-[48px] mt-2 shadow-[10px_9px_22px_0px_#144EE361] mr-2 bg-[#144EE3] w-[178px] h-[60px] px-[25.05px] py-[21px]"
+        className="absolute right-2 top-1/2 transform -translate-y-1/2 text-[16px] rounded-[48px] shadow-[10px_9px_22px_0px_#144EE361] bg-[#144EE3] w-[178px] h-[60px] px-[25.05px] py-[21px] block xs:hidden"
         disabled={loading}
       >
         {loading ? 'Shortening...' : 'Shorten Now!'}
       </button>
+
+      <Image
+        onClick={handleSubmit}
+        src={short}
+        alt="Alternate Image"
+        className="absolute right-0 top-0 bottom-0 w-[60px] h-[60px] mt-2 mr-2 rounded-[48px] hidden xs:block"
+      />
     </div>
-    
+
     <div className="text-[#C9CED6] font-light text-[14px] flex items-center mt-[16px]">
       <Image 
         onClick={() => {
@@ -174,32 +193,33 @@ export default function HomePage() {
         src={Clip} 
         alt="clip" 
       />  
-      <h1 className="pb-1 ml-2">Auto Paste from Clipboard</h1>
+      <h1 className="pb-1 ml-2 items-center">Auto Paste from Clipboard</h1>
     </div>
   </div>
 
-  <ProfileButton />
-</header>
+  <div className="xs:hidden lm:hidden">
+    <ProfileButton />
+  </div>
+</header> */}
 
 
 
 
 
-<div className="fixed w-[1728px] justify-center h-[112px] top-[180px] p-[21px_25.19px_21px_25px] bg-[#181E29]">
-  <div className="flex justify-center mt-[20px] items-center w-full gap-[64px]">
+<Header url={url} setUrl={setUrl} handleSubmit={handleSubmit} loading={loading} />
+
+<div className="sticky w-full max-w-full justify-center h-[112px] top-[180px] p-[21px_25.19px_21px_25px] bg-[#181E29]">
+  <div className="flex  sm:flex-row justify-center items-center w-full gap-4 sm:gap-[64px] mt-[20px]">
     <div className="flex items-center gap-2 text-white cursor-pointer">
-      {/* <span className="icon-history" />  */}
-      <Image src={clock} alt='clock'/>
-      {/* Replace with the actual icon */}
+      <Image src={clock} alt="clock" />
       <span>History</span>
     </div>
     <div className="flex items-center gap-2 text-white cursor-pointer">
-    <Image src={chart} alt='chart'/>
-      {/* Replace with the actual icon */}
+      <Image src={chart} alt="chart" />
       <span>Statistics</span>
     </div>
     <div className="flex items-center gap-2 text-white cursor-pointer">
-    <Image src={cog} alt='cog'/> {/* Replace with the actual icon */}
+      <Image src={cog} alt="cog" />
       <span>Settings</span>
     </div>
   </div>
@@ -208,51 +228,19 @@ export default function HomePage() {
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-      <main className="container mx-auto p-6">
-        {/* <div className="flex justify-center w-full items-center space-x-4 bg-gray-600 p-4 rounded"></div> */}
-
-
-        {/* <div className="flex text-center text-[#C9CED6] ">
-          <Link href="/customSlug">
-            <h1 className="text-[#932970]  mr-[5px]">Generate Custom Slug</h1>
-          </Link>
-       
-        </div> */}
-
-{/*         
-        {error && <div className="mt-4 text-red-500">Error: {error}</div>}
-
-        <div className="text-center text-gray-400 mt-8">
-          <p>You can create <span className="text-pink-500">05</span> more links.</p>
-        </div> */}
-
-        <div className="mt-8">
-           <h2 className="text-lg mb-[50px]">History (143)</h2>
-
+      <main className="container mx-auto   ">
 
 
           <div className="flex justify-between items-center w-full py-4  my-[27px] h-[76px]"> 
   <h1 className="text-white font-bold text-xl">History (143)</h1>
   <div className="flex gap-4">
-    <button className="flex items-center gap-2 px-4 py-2 bg-[#181E29] text-[#C9CED6] text-[15px] font-bold border border-solid border-[#353C4A] rounded-[48px]">
+    <button className="flex items-center xs:pr-[25px] gap-2 px-4 py-2 bg-[#181E29] text-[#C9CED6] text-[15px] font-bold border border-solid border-[#353C4A] rounded-[48px]">
     <Image className="" src={add} alt='add' />
     <Link href="/customSlug">
     
       Add    </Link>
     </button>
-    <button className="flex items-center gap-2 px-4 py-2 bg-[#181E29] text-[#C9CED6] text-[15px] border border-solid border-[#353C4A] font-bold rounded-[48px]">
+    <button className="flex items-center xs:pr-[25px] gap-2 px-4 py-2 bg-[#181E29] text-[#C9CED6] text-[15px] border border-solid border-[#353C4A] font-bold rounded-[48px]">
     <Image src={filter} alt='filter'/> 
     
       Filter
@@ -266,92 +254,35 @@ export default function HomePage() {
 
 {/* table */}
 
-          <div className=" bg-dark-600  rounded ">
-            <table className="min-w-full text-left text-sm bg-[#0F131A]">
-              <thead className="text=[15px] font-bold text-[#C9CED6]">
-                <tr>
-                  <th className="p-4">Short Link</th>
-                  <th className="p-4">Original Link</th>
-                  <th className="p-4">QR Code</th>
-                  <th className="p-4">Clicks</th>
-                  <th className="p-4">Status</th>
-                  <th className="p-4">Date  <Image className='inline ml-[2px]' src={dat} alt='date' /> </th>
-                  <th className="p-4">Action</th>
-                </tr>
-              </thead>
-              <tbody>
-                {urls.map((urlRecord) => (
-                  <tr key={urlRecord.id} className="bg-[#0F131A]   text=[14px] font-light text-[#C9CED6]">
+<div className="w-full mt-10 ">
+ 
 
 
+  <URLTable
+          urls={urls}
+          onStatusChange={handleStatusChange}
+          onDelete={handleDeleteUrl}
+          onEdit={handleEditUrl}
+          onCopy={handleCopyToClipboard}
+        
+        />
 
+  
 
-<td className="p-4 ">
-                      <span className="">{`http://localhost:3000/api/redirect/${urlRecord.shortUrl}`}</span>
-                      <Image
-                        className='inline cursor-pointer'
-                        onClick={() => handleCopyToClipboard(`http://localhost:3000/api/redirect/${urlRecord.shortUrl}`)}
-                        src={copy}
-                        alt='copy'
+  <CardView
+          urls={urls}
+          onStatusChange={handleStatusChange}
+          onDelete={handleDeleteUrl}
+          onEdit={handleEditUrl}
+          onCopy={handleCopyToClipboard}
+          expandedRows={expandedRows}
+          onExpand={(id) => setExpandedRows((prev) => ({ ...prev, [id]: !prev[id] }))}
+        />
 
-                      />
-                    </td>
+</div>
 
-
-
-
-                    {/* <td className="p-4 ">{urlRecord.originalUrl}</td> */}
-                    <td className=" ">
-                      <OriginalUrlWithFavicon url={urlRecord.originalUrl} />
-                      {/* <td className=" xl:pl-[72.76px] ">{urlRecord.originalUrl}</td> */}
-                    </td>
-
-
-
-
-
-
-
-                    <td className="p-4">
-                      <QRCode value={urlRecord.originalUrl} size={64} />
-                    </td>
-                    <td className="p-4">{urlRecord.visitCount}</td>
-                    <td className="p-4">
-                      <div
-                        onClick={() => handleStatusChange(urlRecord.shortUrl, urlRecord.status === 'active' ? 'inactive' : 'active')}
-                        className={`flex items-center cursor-pointer ${urlRecord.status === 'active' ? 'text-green-500' : 'text-yellow-500'}`}
-                      >
-                        {urlRecord.status === 'active' ? (
-                          <>
-                            Active <Image src={active} alt="active" className="ml-2" />
-                          </>
-                        ) : (
-                          <>
-                            Inactive <Image src={inactive} alt="inactive" className="ml-2" />
-                          </>
-                        )}
-                      </div>
-                    </td>
-                    {/* <td className="p-4">{new Date(urlRecord.createdAt).toLocaleDateString()}</td> */}
-                    <td className="p-2">
-  {format(new Date(urlRecord.createdAt), "MMM - dd -yyyy")}
-</td>
-                    <td className="p-4 flex space-x-2">
-                      <Image
-                        src={edit}
-                        alt="edit"
-                        onClick={() => handleEditUrl(urlRecord.shortUrl)}
-                        style={{ cursor: 'pointer' }}
-                      />
-                      <Image src={del} onClick={() => handleDeleteUrl(urlRecord.shortUrl)} style={{ cursor: 'pointer' }} alt="delete" />
-                    </td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
-        </div>
       </main>
+    
 
       <EditUrlModal
         isOpen={isEditModalOpen}

@@ -95,22 +95,23 @@ const Page = () => {
         </div> */}
       </header>
       <main className="flex flex-col items-center text-center justify-center mt-20">
-        <h2 className="text-4xl text-[60px] leading-[50px] font-bold p-6 bg-gradient-to-r from-[#EB568E] to-[#144EE3] text-transparent bg-clip-text text-center mb-6">
+        <h2 className="text-4xl  xs:text-[30px] text-[60px] leading-[50px] font-bold p-6 bg-gradient-to-r from-[#EB568E] to-[#144EE3] text-transparent bg-clip-text text-center mb-6">
           Forgot Your Password?
         </h2>
-        <p className="text-center  text-[#C9CED6] mb-[46px] text-[16px] font-light leading-[23.5px]">
+        <p className="text-center xs:px-[30px]  text-[#C9CED6] mb-[46px] text-[16px] font-light leading-[23.5px]">
           Enter your email address below and we'll send you a link to reset your password.
         </p>
-        <form className="w-2/3" onSubmit={handleSubmit}>
-          <div className="relative mb-6">
-            <input
-              type="email"
-              value={email}
-              onChange={handleEmailChange}
-              placeholder="Enter your email"
-              className="w-full lg:w-[659px] h-[76px] pl-4 pr-[178px] rounded-[48px] border-4 border-[#353C4A] bg-[#181E29] focus:outline-none focus:border-purple-400 text-white"
-            />
-          </div>
+        <form className="" onSubmit={handleSubmit}>
+        <div className="mb-6">
+  <input
+    type="email"
+    value={email}
+    onChange={handleEmailChange}
+    placeholder="Enter your email"
+    className="w-full sm:w-[300px] md:w-[400px] lg:w-[659px] h-[76px] pl-4 pr-12 rounded-[48px] border-4 border-[#353C4A] bg-[#181E29] focus:outline-none focus:border-purple-400 text-white placeholder-gray-500"
+  />
+</div>
+
           <button
             type="submit"
             className="bg-[#144EE3]  h-[60px] w-[176px] text-[#FFFFFF] font-semibold text-[16px] py-[21px] px-[25.05px] border border-solid border-[#144EE3] shadow-[10px_9px_22px_0px_#144EE361] rounded-[48px]  "

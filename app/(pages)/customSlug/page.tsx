@@ -7,6 +7,8 @@ import { nanoid } from 'nanoid';
 import Image from 'next/image';
 import link from "@/app/assets/images/link.svg"
 import ProfileButton from "@/components/profileButton/ProfileButton"
+import firstImage from "@/app/assets/images/Cubes.svg";
+import secondImage from "@/app/assets/images/Swirl.svg";
 
 
 const Home: React.FC = () => {
@@ -34,7 +36,10 @@ const Home: React.FC = () => {
   };
 
   return (
-    <div className="min-h-screen bg-[#0b0e14] flex flex-col items-center">
+    <div  style={{
+      backgroundImage: `url(${firstImage.src}), url(${secondImage.src})`,
+      // animation: 'bg-animation 10s infinite alternate',
+    }} className="min-h-screen bg-[#0b0e14] flex flex-col items-center">
     <header className="w-full flex flex-col md:flex-row justify-between items-center pt-[44px] px-[20px] md:px-[52px] lg:px-[55px] lg:h-[104px]">
       <h1 className="bg-gradient-to-r from-[#EB568E] to-[#144EE3] text-transparent bg-clip-text font-extrabold text-[24px] md:text-[36.91px] leading-[30px] md:leading-[45.44px]">
         Linkly
@@ -53,11 +58,11 @@ const Home: React.FC = () => {
           <input
             type="text"
             placeholder="Enter the link to shorten here"
-            className="py-[16px] md:py-[24px] pl-[3rem] w-full md:w-[700px] lg:w-[1100px] bg-[#181E29] border border-[#353C4A] text-white rounded-full focus:outline-none"
+            className="py-[16px] md:py-[24px] pl-[3rem] xs:w-[340px] w-full md:w-[700px] lg:w-[1100px] bg-[#181E29] border border-[#353C4A] text-white rounded-full focus:outline-none"
             value={url}
             onChange={(e) => setUrl(e.target.value)}
           />
-        </div>
+        </div> 
   
         <div className="flex items-center w-full relative mb-[24px]">
           <span className="absolute left-4 text-white">
