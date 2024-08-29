@@ -11,7 +11,7 @@ import { useExpandedRows } from "@/src/hooks/useExpandedRows";
 import { useUrlInput } from "@/src/hooks/useUrlInput";
 import Loader from "@/src/components/loader/Loader";
 import { handleCopyToClipboard } from "@/src/utils/clipboard";
-import { useUrlActions } from "./useUserUrlForm";
+import { useUrlActions } from "./useUrlForm";
 import IMAGES from "@/src/constants/constants";
 export default function UrlForm() {
   const { url, handleUrlChange, resetUrl } = useUrlInput();

@@ -3,7 +3,7 @@ import dynamic from "next/dynamic";
 import IMAGES from "@/src/constants/constants";
 import { Metadata } from "next";
 const ChangePasswordForm = dynamic(
-  () => import("@/src/components/changePasswordForm/changePasswordForm"),
+  () => import("@/src/components/changePasswordForm/ChangePasswordForm"),
   {
     ssr: false,
   }

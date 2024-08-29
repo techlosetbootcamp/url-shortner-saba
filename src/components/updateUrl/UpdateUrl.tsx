@@ -1,5 +1,5 @@
 import React from "react";
-import useEditUrl from "./useEditUrl";
+import useEditUrl from "./useUpdateUrl";
 import { EditUrlModalProps } from "@/src/types/types";
 
 const EditUrlModal: React.FC<EditUrlModalProps> = ({
