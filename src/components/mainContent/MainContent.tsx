@@ -14,7 +14,7 @@ const UrlForm: React.FC<UrlFormProps> = ({
 }) => {
   return (
     <>
-      <h2 className="text-4xl xs:text-[35px] text-[60px] py-6 px-8 font-extrabold bg-gradient-to-r from-gradBlue via-gradPink to-gradBlue text-transparent bg-clip-text text-center mb-[20px]">
+      <h2 className=" xs:text-[35px]  text-[60px] py-6 px-8 font-extrabold bg-gradient-to-r from-gradBlue via-gradPink to-gradBlue text-transparent bg-clip-text text-center mb-[20px]">
         Shorten Your Loooong Links :)
       </h2>
       <p className="text-center text-secondaryText mb-8 text-[16px] font-light w-full max-w-[634px]">
@@ -38,7 +38,7 @@ const UrlForm: React.FC<UrlFormProps> = ({
         />
         <button
           onClick={handleSubmit}
-          className="absolute right-0 top-0 bottom-0 text-[16px] rounded-[48px] mt-2 shadow-[10px_9px_22px_0px_#144EE361] mr-2 bg-gradBlue w-[178px] h-[60px] px-[25.05px] py-[21px] block xs:hidden"
+          className="absolute right-0 top-0 bottom-0 text-[16px] rounded-[48px] mt-2 shadow-[10px_9px_22px_0px_#144EE361] mr-2 bg-gradBlue w-[178px] h-[60px] px-[25px]  block xs:hidden"
           disabled={loading}
         >
           Shorten Now

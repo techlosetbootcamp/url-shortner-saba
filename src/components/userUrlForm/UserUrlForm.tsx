@@ -39,8 +39,8 @@ export default function UrlForm() {
       />
       <Analytics />
       <main className="container mx-auto">
-        <div className="flex justify-between items-center w-full py-4 my-[27px] h-[76px] pl-[67px] pr-[93px]">
-          <h1 className="text-secondaryText font-bold text-xl">History</h1>
+        <div className="flex justify-between items-center w-full py-4 my-[27px] h-[76px] pl-[67px] pr-[93px] tm:px-[20px]">
+          <h1 className="text-secondaryText font-bold text-xl tm:text-[16px] tm:mr-[6px]">History</h1>
           <div className="flex gap-4">
             <button className="flex items-center xs:pr-[25px] gap-2 px-4 py-2 bg-inputBackground text-secondaryText text-[15px] font-bold border border-solid border-inputBorder rounded-[48px]">
               <Image className="" src={IMAGES.add} alt="add" />

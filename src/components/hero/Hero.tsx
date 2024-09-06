@@ -18,19 +18,19 @@ const Header: React.FC<HeaderProps> = ({
         Linkly
       </h1>
 
-      <div className="flex-1 flex flex-col items-center justify-center mt-[60px]">
+      <div className="flex-1 flex flex-col items-center justify-center mr-[15px] mt-[60px]">
         <div className="relative w-full max-w-[1100px]">
           <input
             type="text"
             placeholder="Enter the link here"
             value={url}
             onChange={(e) => setUrl(e.target.value)}
-            className="w-full h-[76px] pl-4 pr-[190px] rounded-[48px] border-4 border-inputBorder bg-darkGrey focus:outline-none focus:border-focusInput text-primary"
+            className="w-full h-[76px] pl-4 pr-[190px] xs:pr-[30px]  rounded-[48px] tm:pl-[5px] tm:pr-[10px] border-4 border-inputBorder bg-darkGrey focus:outline-none focus:border-focusInput text-primary"
           />
 
           <button
             onClick={handleSubmit}
-            className="absolute right-2 top-1/2 transform -translate-y-1/2 text-[16px] rounded-[48px] shadow-custom bg-gradBlue w-[178px] h-[60px] px-[25.05px] py-[21px] block xs:hidden"
+            className="absolute right-2 top-1/2 transform -translate-y-1/2 text-[16px]   rounded-[48px] shadow-custom bg-gradBlue w-[178px] h-[60px] px-[25.05px] py-[21px] block xs:hidden"
             disabled={loading}
           >
             {loading ? "Shortening..." : "Shorten Now!"}
@@ -40,7 +40,7 @@ const Header: React.FC<HeaderProps> = ({
             onClick={handleSubmit}
             src={IMAGES.short}
             alt="Alternate Image"
-            className="absolute right-0 top-0 bottom-0 w-[60px] h-[60px] mt-2 mr-2 rounded-[48px] hidden xs:block"
+            className="absolute right-0 top-0 bottom-0 rounded-[48px] hidden xs:block tm:pl-[30px] tm:pt-[14px] tm:top-[3px] "
           />
         </div>
 

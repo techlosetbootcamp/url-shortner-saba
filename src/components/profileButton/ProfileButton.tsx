@@ -18,15 +18,15 @@ const ProfileButton: React.FC = () => {
     <div className="relative flex items-center space-x-4">
       <div className="relative">
         <button
-          className="w-[191px] h-[60px] px-[25px] py-[21px] border-inputBorder bg-darkGrey shadow-[0px_4px_10px_0px_#0000001A] text-primary rounded-full flex items-center space-x-2"
+          className="w-[188px]  px-[34px] py-[12px]  border border-solid border-inputBorder bg-darkGrey shadow-[0px_4px_10px_0px_#0000001A] text-primary rounded-full flex items-center space-x-2"
           onClick={toggleDropdown}
         >
-          <span>
-            Welcome
-            <pre>{session?.user?.name}</pre>
+          <span className="mr-[10px]">
+          <pre className="text-[10px] font-light"> Welcome</pre>
+            <pre className="text-[16px] font-semibold">{session?.user?.name}</pre>
           </span>
 
-          <Image src={IMAGES.chevron} alt="down" />
+          <Image src={IMAGES.chevron} alt="down"  />
         </button>
         <div className="hidden absolute right-0 h-[71px] bg-darkGrey border rounded-md shadow-lg w-48">
           <Link

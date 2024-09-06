@@ -22,7 +22,7 @@ const URLTable: React.FC<URLTableProps> = ({
 
   if (!urls || urls.length === 0) {
     return (
-      <div className="text-center text-gradPink text-lg font-bold animate-bounce ">
+      <div className="text-center text-gradPink text-lg font-bold animate-bounce tm:text-sm ">
      No records found. Please add a new URL
       </div>
     );
@@ -133,7 +133,7 @@ const URLTable: React.FC<URLTableProps> = ({
                 {format(new Date(urlRecord?.createdAt), "MMM - dd -yyyy")}
               </td>
     
-              <td className="p-4 flex space-x-2">
+              <td className=" flex ">
                 {onEdit && (
                   <Image
                     src={IMAGES.edit}

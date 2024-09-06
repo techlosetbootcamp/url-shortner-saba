@@ -12,6 +12,7 @@ const config: Config = {
         xs: { max: "700px" },
 
         lm: { max: "1500px" },
+        tm:{max: "450px"},
       },
       colors: {
         ...colors,
