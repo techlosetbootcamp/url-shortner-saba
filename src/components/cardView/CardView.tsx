@@ -42,7 +42,7 @@ const CardView: React.FC<CardViewProps> = ({
                 alt="copy"
               />
             </div>
-            <div className="flex items-center mt-2 sm:mt-0 ml-[80px]">
+            <div className="flex items-center mt-2 sm:mt-0 ml-[80px] tm:ml-[6px]">
               <Image
                 onClick={() => handleExpand(urlRecord?.id)}
                 src={IMAGES.show}

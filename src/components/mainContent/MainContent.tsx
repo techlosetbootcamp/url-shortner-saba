@@ -34,7 +34,7 @@ const UrlForm: React.FC<UrlFormProps> = ({
           placeholder="Enter the link here"
           value={url}
           onChange={(e) => setUrl(e.target.value)}
-          className="w-full sm:w-[378px] md:w-[400px] lg:w-[500px] xl:w-[659px] h-[76px] xs:h-[64px] pl-[3rem] pr-[178px] rounded-[48px] border-4 border-inputBorder bg-darkGrey focus:outline-none focus:border-focusInput text-primary"
+          className="w-full sm:w-[378px] md:w-[400px] lg:w-[500px] xl:w-[659px] h-[76px] xs:h-[64px] pl-[3rem] pr-[178px] tm:pr-[60px] rounded-[48px] border-4 border-inputBorder bg-darkGrey focus:outline-none focus:border-focusInput text-primary"
         />
         <button
           onClick={handleSubmit}

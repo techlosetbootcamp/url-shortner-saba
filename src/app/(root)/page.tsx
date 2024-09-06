@@ -28,7 +28,7 @@ const HomePage: React.FC = () => {
           Linkly
         </h2>
         <div>
-          <button className="w-[123.19px] xs:h-[45px] xs:py-[13px] h-[60px] text-primary mr-5 xs:mr-[0px] px-[25.19px]  font-semibold text-[16px] rounded-[48px] border border-solid border-inputBorder bg-darkGrey shadow-[0_4px_10px_0px_rgba(0,0,0,0.1a)]">
+          <button className="w-[123.19px] xs:h-[45px]  h-[60px] text-primary mr-5 xs:mr-[0px] px-[25.19px]  font-semibold text-[16px] rounded-[48px] border border-solid border-inputBorder bg-darkGrey shadow-[0_4px_10px_0px_rgba(0,0,0,0.1a)]">
             <Link href="/login">Login</Link>
             <Image className="inline ml-1" src={sign} alt="login" />
           </button>
