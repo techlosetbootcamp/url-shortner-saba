@@ -94,7 +94,7 @@ const URLTable: React.FC<URLTableProps> = ({
                 </a>
               </td>
               <td className="pl-10">{urlRecord?.visitCount}</td>
-              <td className="pl-10">
+              <td className="pl-10 ov:pl-[10px]">
                 <div
                   onClick={() =>
                     handleStatusChange(
@@ -129,11 +129,11 @@ const URLTable: React.FC<URLTableProps> = ({
                   )}
                 </div>
               </td>
-              <td className="pl-14">
-                {format(new Date(urlRecord?.createdAt), "MMM - dd -yyyy")}
+              <td className="pl-14 ov:pl-[14px]">
+                {format(new Date(urlRecord?.createdAt), "MMM-dd-yyyy")}
               </td>
     
-              <td className=" flex ">
+              <td className=" flex  w-[132px]">
                 {onEdit && (
                   <Image
                     src={IMAGES.edit}

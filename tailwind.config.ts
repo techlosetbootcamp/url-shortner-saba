@@ -13,6 +13,7 @@ const config: Config = {
 
         lm: { max: "1500px" },
         tm:{max: "450px"},
+        ov:{max: "1274px"},
       },
       colors: {
         ...colors,
